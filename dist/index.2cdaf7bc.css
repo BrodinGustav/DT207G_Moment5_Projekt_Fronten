@@ -57,14 +57,9 @@ nav {
   }
 }
 
-.login-plate {
-  z-index: 1;
-  opacity: .6;
-  background-color: #fff;
-}
-
-.login-plate img {
-  z-index: 555;
+.link-icon {
+  width: 50px;
+  height: auto;
 }
 
 footer {
