@@ -3,6 +3,10 @@ body {
   margin: 0 auto;
 }
 
+#protected-link {
+  display: none;
+}
+
 .home-text {
   text-align: center;
   z-index: 2;
