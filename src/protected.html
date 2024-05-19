@@ -16,8 +16,36 @@
     </header>
     <main>
         <div id="protectedData"> 
-            <h2>Skyddad Data</h2>
+            <h2>Meny</h2>
                 <p id="protectedContent"></p>
+                    
+                <!--Meny-formulär-->
+                <h2>Lägg till maträtt</h2>
+               <form id="loginForm">
+                <input type="text" id="foodName" name="foodName" placeholder="Maträtt" required>
+                <input type="text" id="foodDescription" name="foodDescription" placeholder="Beskrivning" required>
+                <input type="number" id="foodPrice" name="foodPrice" placeholder="Pris" required>
+                <button id="LoginBtn" type="submit">Lägg till</button>
+                </form>
+ 
+                <!--Uppdatera-formulär-->
+                <h2>Uppdatera maträtt</h2>
+                <form id="loginForm">
+                <input type="text" id="foodName" name="foodName" placeholder="Maträtt" required>
+                <input type="text" id="foodDescription" name="foodDescription" placeholder="Beskrivning" required>
+                <input type="number" id="foodPrice" name="foodPrice" placeholder="Pris" required>
+                <button id="LoginBtn" type="submit">Uppdatera</button>
+                </form>
+
+                 <!--Radera-formulär-->
+                 <h2>Radera maträtt</h2>
+                 <form id="loginForm">
+                  <input type="text" id="foodName" name="foodName" placeholder="Maträtt" required>
+                  <input type="text" id="foodDescription" name="foodDescription" placeholder="Beskrivning" required>
+                  <input type="number" id="foodPrice" name="foodPrice" placeholder="Pris" required>
+                  <button id="LoginBtn" type="submit">Radera</button>
+                  </form>
+<hr>
                 <button id="LogoutBtn" onclick="logOut()">Logga ut</button>
             </div>
 

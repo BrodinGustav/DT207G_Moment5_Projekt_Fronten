@@ -1,5 +1,5 @@
 body{
-    max-width:968px;
+    max-width:100%;
     margin:0 auto;
 }
 
@@ -44,10 +44,10 @@ body{
 header{
     width:100%;
     z-index: 999;
-    position:fixed;
+    position:absolute;
     top:0;
     right:0;
-}
+ }
 
 nav {
     z-index:555;
@@ -64,6 +64,28 @@ nav {
 .link-icon{
     width:50px;
     height:auto;
+}
+
+
+#protectedData{
+    text-align: center;
+    z-index: 2;
+    background: 0 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:white;
+    border:2px solid orange;
+    padding:20px;
+    box-shadow: 2px 2px 15px 10px orange;
+}
+
+#LogoutBtn{
+    border-radius:10px;
+    padding: 10px;
+    background-color: orange;
+    margin-top:5em;
 }
 
 footer{
