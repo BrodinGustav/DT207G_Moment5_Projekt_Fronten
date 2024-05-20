@@ -40,6 +40,28 @@ body {
   left: 0;
 }
 
+.home-img2 {
+  background-color: #8b4513;
+  max-width: 100%;
+  height: auto;
+}
+
+.home-img3 {
+  background-color: #ff8c00;
+  max-width: 100%;
+  height: auto;
+}
+
+.faded {
+  opacity: .8;
+  border-radius: 50%;
+  width: 250px;
+  height: auto;
+  margin-left: 1em;
+  padding: 20px;
+  display: flex;
+}
+
 header {
   z-index: 999;
   width: 100%;
@@ -89,5 +111,97 @@ nav {
 
 footer {
   color: #fff;
+  background-color: tomato;
+}
+
+.home-sec tion {
+  max-width: 100%;
+}
+
+.menu-gallery-left {
+  align-items: left;
+  flex-direction: column;
+  gap: 10em;
+  display: flex;
+}
+
+.menu-gallery-right {
+  align-items: right;
+  flex-direction: column;
+  gap: 4em;
+  display: flex;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+}
+
+.menu-gallery-bottom {
+  align-items: right;
+  flex-direction: column;
+  gap: 4em;
+  display: flex;
+  position: absolute;
+  top: 60%;
+  right: 15%;
+}
+
+img {
+  z-index: 2;
+  border-radius: 50%;
+  width: 150px;
+  height: auto;
+}
+
+.menu-section {
+  padding: 20px;
+}
+
+.menu-header h2 {
+  text-align: center;
+  color: #333;
+}
+
+.menu-categories {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  display: flex;
+}
+
+h3 {
+  color: tomato;
+}
+
+.menu-item {
+  align-items: center;
+  margin: 10px 0;
+  display: flex;
+}
+
+.menu-item img {
+  object-fit: cover;
+  border-radius: 8px;
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+.menu-item-info {
+  flex: 1;
+}
+
+.menu-item-info h4 {
+  color: #333;
+  margin: 0;
+}
+
+.menu-item-info p {
+  color: #b1b1b1;
+  margin: 5px 0;
+}
+
+.menu-item-info .price {
+  color: #ff8c00;
+  font-weight: bold;
 }
 /*# sourceMappingURL=index.2cdaf7bc.css.map */

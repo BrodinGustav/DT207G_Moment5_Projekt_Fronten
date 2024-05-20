@@ -41,6 +41,28 @@ body{
     left: 0;
 }   
 
+.home-img2{
+    background-color:#8B4513;
+    max-width: 100%;
+    height:auto; 
+}
+ 
+.home-img3{
+    background-color:#FF8C00;
+    max-width: 100%;
+    height:auto; 
+}
+
+.faded{
+    display: flex;
+    margin-left:1em;
+    opacity:0.8;
+    width:250px;
+    height:auto;
+    border-radius:50%;
+    padding:20px;
+}
+
 header{
     width:100%;
     z-index: 999;
@@ -90,4 +112,99 @@ nav {
 
 footer{
     color:white;
+    background-color: #FF6347;
 }
+
+    /*Homegalleri*/
+
+    .home-sec   tion{
+        max-width:100%;
+
+    }
+    .menu-gallery-left{
+        display:flex;
+        flex-direction: column;
+        align-items: left;
+        gap:10em;
+    }
+    
+    .menu-gallery-right{
+        position: absolute;
+        display:flex;
+        flex-direction: column;
+        align-items: right;
+        top:10%;
+        right:5%;
+        gap:4em;
+    }
+    
+    .menu-gallery-bottom{
+        position: absolute;
+        display:flex;
+        flex-direction: column;
+        align-items: right;
+        top:60%;
+        right:15%;
+        gap:4em;
+        
+    }
+    img{
+        z-index:2;
+        width:150px;
+        height:auto;
+        border-radius: 50%;
+    }
+
+    /*Menygalleri*/
+    .menu-section {
+        padding: 20px;
+    }
+    
+    .menu-header h2 {
+        text-align: center;
+        color: #333;
+    }
+    
+    .menu-categories {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+    }
+    
+    h3 {
+        color: #ff6347; /* Tomato Red */
+    }
+    
+    .menu-item {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+    }
+    
+    .menu-item img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-right: 10px;
+    }
+    
+    .menu-item-info {
+        flex: 1;
+    }
+    
+    .menu-item-info h4 {
+        margin: 0;
+        color: #333;
+    }
+    
+    .menu-item-info p {
+        margin: 5px 0;
+        color: #b1b1b1;
+    }
+    
+    .menu-item-info .price {
+        font-weight: bold;
+        color: #ff8c00;
+    }

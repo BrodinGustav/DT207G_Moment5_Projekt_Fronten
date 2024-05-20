@@ -35,3 +35,6 @@ function logOut() {
     document.getElementById("protectedData").style.display = "none";            //Gömmer ID vid utlogg
     window.location.href = 'index.html';
 }
+
+
+//Hur få utskrift av menyer från databasen? Behöver jag importera URL för samtliga funktioner för meny-hantering? Hur skriva ut det med templates? 

@@ -61,6 +61,6 @@ async function logIn(username, password) {
     } catch (error) {
         console.error("Error logging in:", error);
     }
-}
+} //Hämta in meny
 
 //# sourceMappingURL=index.de158e3a.js.map

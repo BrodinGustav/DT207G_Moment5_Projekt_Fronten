@@ -29,6 +29,6 @@ function logOut() {
     localStorage.removeItem("token"); //Tar bort token vid utlogg
     document.getElementById("protectedData").style.display = "none"; //Gömmer ID vid utlogg
     window.location.href = "index.html";
-}
+} //Hur få utskrift av menyer från databasen? Behöver jag importera URL för samtliga funktioner för meny-hantering? Hur skriva ut det med templates? 
 
 //# sourceMappingURL=protected.083fdc3b.js.map
