@@ -4,30 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DT207G Projekt</title>
-    <link rel="stylesheet" href="/src/style.css">
-  
+    <link rel="stylesheet" href="/src/styleLogIn.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
 </head>
 <body>
+<div class="container">
     <h1>Logga in</h1>
-    
-    <!--Error-container-->
-    <div id="error_container" style="display: none;">
-        <ul id="error_list"></div>
+    <div class="error-container" id="error_container">
+        <ul id="error_list"></ul>
     </div>
-
-    <!--Login-formulär-->
     <form id="loginForm">
-        <input type="text" id="loginUsername" name="username" placeholder="Username" autocomplete="username" required>
-        <input type="password" id="loginPassword" name="password" placeholder="Password" autocomplete="current-password" required>
+        <input type="text" id="loginUsername" name="username" placeholder="Användarnamn" autocomplete="username" required>
+        <input type="password" id="loginPassword" name="password" placeholder="Lösenord" autocomplete="current-password" required>
         <button id="LoginBtn" type="submit">Logga in</button>
     </form>
-
-    <footer>
-        <p>Gustav Brodin</p
-            <p>DT207G</p>
-            <p>Projekt</p>
-            <p>VT 2024</p>
-    </footer>
+    <a href="/src/index.html" class="button">Hem</a>
+</div>
     <script src="/src/protected.js"></script>
 </body>
 </html>
