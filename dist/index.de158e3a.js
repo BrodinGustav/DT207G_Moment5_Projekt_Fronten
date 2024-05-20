@@ -73,22 +73,23 @@ async function fetchMenu() {
             }
         });
         if (!response.ok) throw new Error(`Http error! Statis: ${response.status}`);
-        //Anropar funktion för rendering av meny om fetch ok
-        console.log("Fetched menu data:", menuData); //Felsökningsutskrift
+        const menuData = await response.json();
+        console.log("Fetched menu data:", menuData); // Felsökningsutskrift
         renderMenu(menuData);
     } catch (error) {
-        console.error("Error vid fetch av meny:", error);
+        console.error("Error fetching menu:", error);
     }
 }
 //Funktion för rendering av meny
-function renderMenu(menuData1) {
+function renderMenu(menuData) {
     const menuContainer = document.querySelector(".menu-categories");
     menuContainer.innerHTML = ""; //Rensar innehåll
-    if (!Array.isArray(menuData1)) {
-        console.error("Menu data is not an array:", menuData1);
+    if (!Array.isArray(menuData)) {
+        console.error("Menu data is not an array:", menuData);
         return;
     }
-    menuData1.forEach((item)=>{
+    menuData.forEach((item)=>{
+        console.log("Kontroll item:", item); //Felkontroll
         if (!item.name || !item.description || !item.price || !item._id) {
             console.error("Invalid item format:", item);
             return;

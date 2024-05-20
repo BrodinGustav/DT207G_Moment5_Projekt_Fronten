@@ -92,12 +92,13 @@ async function fetchMenu() {
             throw new Error(`Http error! Statis: ${response.status}`);
         }
 
-        //Anropar funktion för rendering av meny om fetch ok
-        console.log('Fetched menu data:', menuData);            //Felsökningsutskrift
+        const menuData = await response.json();
+        console.log('Fetched menu data:', menuData);        // Felsökningsutskrift
         renderMenu(menuData);
-    }catch(error) {
-        console.error("Error vid fetch av meny:", error);
+    } catch (error) {
+        console.error('Error fetching menu:', error);
     }
+
 }
 
 //Funktion för rendering av meny
@@ -111,6 +112,7 @@ function renderMenu(menuData) {
     }
 
     menuData.forEach(item => {
+        console.log('Kontroll item:', item);                        //Felkontroll
         if (!item.name || !item.description || !item.price || !item._id) {
             console.error('Invalid item format:', item);
             return;

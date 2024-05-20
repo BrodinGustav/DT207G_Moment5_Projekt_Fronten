@@ -52,7 +52,7 @@
 87C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\msgpackr-extract\package.json133605873972681021 0
 106C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\css-select\lib\pseudo-selectors\filters.d.ts.map133605873980175259 0
 124C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\mergePaths.js133605874001139401 0
-49C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist133606688970564833 1
+49C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist133606692849170033 1
 98C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\caniuse-lite\data\features\filesystem.js133605873997377775 0
 57C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules133605874034104568 1
 133C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\syntax\atrule\media.js133605874003603086 0
@@ -90,7 +90,7 @@
 66C:\Utbildning\DT207G\Moment5_Projekt_Fronten\src\pictures\korv.jpg133605891907889429 0
 99C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\electron-to-chromium\chromium-versions.js133605873971576134 0
 130C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\lexer\generic-urange.js133605874002218904 0
-56C:\Utbildning\DT207G\Moment5_Projekt_Fronten\src\main.js133606688281097643 0
+56C:\Utbildning\DT207G\Moment5_Projekt_Fronten\src\main.js133606692848196588 0
 89C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\caniuse-lite\data\regions\NI.js133605874007538907 0
 58C:\Utbildning\DT207G\Moment5_Projekt_Fronten\src\menu.html133605875526043063 0
 97C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\caniuse-lite\data\features\webcodecs.js133605874011809782 0
@@ -5931,8 +5931,6 @@
 70C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\burgare.396740cd.jpg133606664196260962 0
 71C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\burgare3.367314b6.jpg133606629343761830 0
 80C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\circle-user-solid.583e6262.svg133606664196160948 0
-67C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\index.de158e3a.js133606688281321558 0
-71C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\index.de158e3a.js.map133606688281341758 0
 67C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\korv.38fac62d.jpg133606664197570958 0
 75C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\korv.38fac62d.jpg.19400.a133606662907476117 0
 68C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\korv2.494fc2c1.jpg133606664196410929 0
@@ -5943,3 +5941,5 @@
 75C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\protected.d2593d7c.js.map133606664196100939 0
 75C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\testbakgrund.d0bb0f6c.jpg133605899863751472 0
 85C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\testbakgrund3.05e1803f.jpg.17888.74133605947984376469 0
+67C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\index.de158e3a.js133606692849110018 0
+71C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\index.de158e3a.js.map133606692849160387 0
