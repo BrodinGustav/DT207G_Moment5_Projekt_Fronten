@@ -5,7 +5,12 @@ html {
 body {
   max-width: 100%;
   margin: 0 auto;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 18px;
+}
+
+h1 {
+  font-size: 5vw;
 }
 
 #protected-link {
@@ -24,6 +29,8 @@ header {
 .companyLogga {
   width: 100px;
   height: auto;
+  padding: 5px;
+  position: absolute;
 }
 
 .nav-container ul {
@@ -41,7 +48,7 @@ header {
 }
 
 a img:hover {
-  box-shadow: 10px 10px 10px orange;
+  background-color: orange;
 }
 
 .link-icon {
@@ -105,7 +112,7 @@ footer h4 {
   background-size: cover;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  max-width: 100%;
   height: 100vh;
   display: flex;
   position: relative;
@@ -185,10 +192,19 @@ img {
   height: auto;
 }
 
+.tinyImg {
+  opacity: .3;
+  border-radius: 50%;
+  width: 250px;
+  height: auto;
+  padding: 10px;
+}
+
 .menu-header h2 {
   text-align: center;
   color: tomato;
   font-size: 3em;
+  position: relative;
 }
 
 .menu-categories {
@@ -230,6 +246,26 @@ img {
   font-weight: bold;
 }
 
+@media screen and (width >= 332px) and (width <= 393px) {
+  .noSmallestMobile {
+    display: none;
+  }
+
+  h1 {
+    font-size: 7vw;
+  }
+}
+
+@media screen and (width >= 454px) and (width <= 767px) {
+  .noMobile {
+    display: none;
+  }
+
+  .tinyImg {
+    width: 50px;
+  }
+}
+
 @media screen and (width <= 768px) {
   #navbar {
     display: none;
@@ -265,6 +301,10 @@ img {
     padding: 0 1em;
     text-decoration: none;
     display: flex;
+  }
+
+  #navbar a:hover {
+    color: orange;
   }
 
   #navbar li:hover {
@@ -347,22 +387,42 @@ img {
     gap: 2em;
   }
 
+  .tinyImg {
+    width: 150px;
+  }
+
+  .icons li {
+    margin-bottom: 1em;
+  }
+
   footer {
     flex-direction: column;
     align-items: center;
+    line-height: 1em;
   }
 }
 
 @media screen and (width >= 769px) {
-  .nav-container {
-    justify-content: space-around;
-    align-items: center;
-    display: flex;
+  #navbar {
+    display: block;
   }
 
-  .nav-container ul {
-    justify-content: space-around;
-    align-items: center;
+  #navbar ul {
+    font-size: 1.3em;
+    list-style-type: none;
+  }
+
+  #navbar a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  #navbar a:hover {
+    color: orange;
+  }
+
+  #close-menu, #open-menu {
+    display: none;
   }
 }
 /*# sourceMappingURL=index.2cdaf7bc.css.map */
