@@ -6,97 +6,38 @@ const url_Menu = `${Url}/menu`;
 
 document.addEventListener("DOMContentLoaded", function() {
 
-    //Hämta ID för log-in formulär
-    const loginForm = document.getElementById("loginForm");
-
-    //Kontroll om formulär finns
-    if(!loginForm) {
-        console.error("Kan inte hitta formulär.");
-        return;
-    }
-
-    //Händelselyssnar för login-formulär
-    loginForm.addEventListener("submit", async function(event) {
-
-        event.preventDefault();
-
-        const username = document.getElementById("loginUsername").value;
-        const password = document.getElementById("loginPassword").value;
-    
-        //Kontrollera inputfält
-        if(!username || !password) {
-            console.error("Användarnamn och lösenord krävs.");
-            return;
-        }
-            await logIn(username, password);
-    
-        //Återställer input-fält
-        document.getElementById("loginUsername").value = "";
-        document.getElementById("loginPassword").value = "";
-   
-    });
     
 //Funktion för hamburgarmeny
 // Hämta in meny-knapparna
 let openBtn = document.getElementById("open-menu");
 let closeBtn = document.getElementById("close-menu");
 
-// Eventlyssnare
-openBtn.addEventListener('click', toggleMenu);
-closeBtn.addEventListener('click', toggleMenu);
-
+ // Kontroll om knapparna finns
+ if (openBtn && closeBtn) {
+    console.log("Knappar för att öppna och stänga menyn hittades"); //Kontrolllogg
+    // Eventlyssnare
+    openBtn.addEventListener('click', toggleMenu);
+    closeBtn.addEventListener('click', toggleMenu);
+} else {
+    console.error("Knappar för att öppna och/eller stänga menyn hittades inte");    //Kontrolllogg
+}
 // Toggla fram navigeringsmenyn
 function toggleMenu() {
     let navBarEl = document.getElementById("navbar");
+    if (navBarEl) {
+        console.log("toggleMenu anropades");            //Kontrolllogg
+        navBarEl.classList.toggle("open");
+        console.log("Klassen 'open' togglades på navbar. Aktuella klasser:", navBarEl.className); //Kontrollogg
+    } else {
+        console.error("Elementet med ID 'navbar' hittades inte");
+    }
 
-    // Toggle classen 'open'
-    navBarEl.classList.toggle("open");
 }
-})
+});
 
 
 
     //*****FUNKTIONER******//
-
-    //Funktion för logga in
-    async function logIn(username, password) {
-
-        try{
-            const response = await fetch(url_Login, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ username, password })
-            });
-
-            const data = await response.json();
-            console.log(data);
-
-            if (data.token) {
-                localStorage.setItem("token", data.token);
-                window.location.href = "protected.html";
-            
-            }else{
-                //Felaktig input
-                const errorContainer = document.getElementById("error_container");
-                const errorList = document.getElementById("error_list");
-
-                errorList.innerHTML = "";
-                const li = document.createElement("li");
-
-                li.textContent ="Fel användarnamn/lösenord";
-                li.style.color = "white";
-                li.style.listStyle = "none";
-                li.style.textAlign = "center";
-
-                errorList.appendChild(li);
-                errorContainer.style.display = "block";
-            }       
-    } catch (error) {
-        console.error("Error logging in:", error);
-    }
-    }    
 
 //Hämta in meny
 async function fetchMenu() {

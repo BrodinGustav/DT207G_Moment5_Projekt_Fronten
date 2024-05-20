@@ -42,6 +42,10 @@ header{
     display:none;
  }
 
+ #navbar.open {
+    display: block;
+}
+
 /*HAMBURGARMENY SLUT*/
 
 
@@ -251,11 +255,11 @@ footer h4{
 @media screen and (max-width: 768px) {
     
     #navbar {
-        display: block;
+        display: none; 
     }
 
     #navbar.open {
-        display: block;
+        display: block; 
     }
 
 #navbar ul {
