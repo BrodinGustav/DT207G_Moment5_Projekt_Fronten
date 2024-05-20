@@ -26,6 +26,19 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("loginUsername").value = "";
         document.getElementById("loginPassword").value = "";
     });
+    //Funktion för hamburgarmeny
+    // Hämta in meny-knapparna
+    let openBtn = document.getElementById("open-menu");
+    let closeBtn = document.getElementById("close-menu");
+    // Eventlyssnare
+    openBtn.addEventListener("click", toggleMenu);
+    closeBtn.addEventListener("click", toggleMenu);
+    // Toggla fram navigeringsmenyn
+    function toggleMenu() {
+        let navBarEl = document.getElementById("navbar");
+        // Toggle classen 'open'
+        navBarEl.classList.toggle("open");
+    }
 });
 //*****FUNKTIONER******//
 //Funktion för logga in

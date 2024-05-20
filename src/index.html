@@ -10,25 +10,39 @@
 <body>
     <a href="protected.html" id="protected-link">Skyddad sida</a> <!--Dold länk som möjliggör för Parcel att bygga protected.html-->
     <header>
-        <nav>
-            <a href="menu.html">Meny</a>
-            <a href="login.html"><img src="/src/circle-user-solid.svg" alt="ikon för inlogg" class="link-icon"></a>
+            <img src="./pictures/logga.png" alt="företagslogga" class="companyLogga">
+            <nav class="nav-container">
+                <!--Hamburgarmeny start-->
+                <button class="hamburgerMenu-open" id="open-menu">
+                    <span class="menu-icon">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </span>
+                </button>
+                <!--Navigering-->
+                <div id="navbar">
+                    <!--Knapp som visas om mobilmenyn är utfälld-->
+                    <button class="menu-btn-close" id="close-menu">
+                    <span class="menu-icon"><img id="closeMenuImg" src="/src/pictures/stängMeny.svg" alt="Grafisksymbol för stängning av meny"></span>
+                </button>
+                <ul>
+                  <li><a href="#menu-section">Meny</a></li>
+                  <li><a href="#about-section">Om oss</a></li>
+                  <li><a href="login.html"><img src="/src/circle-user-solid.svg" alt="ikon för inlogg" class="link-icon"></a></li>
+                </ul>
+        </div>
+         <!--Hamburgarmeny slut-->
         </nav>
     </header>
     <main>
+        <div class="home-img">
         <div class="home-text">
             <h1>KorvKungen Och BurgarBaronen</h1>
             </div>  
-    <div class="home-img">
-        
-    <div class="home-section">
-        <section>
-         </section>
-        </div>
-    </div> <!--Home-img-->
+    </div>
    
-    
-    <div>
+    <div id="menu-section">
         <div class="home-img2">
             <div class="menu-gallery-burger">
                 <img src="pictures/burgare.jpg">
@@ -41,11 +55,11 @@
         </div>
         <div class="menu-categories">
         </div>
- </div>
+    </div>
  </div>
 
- 
- <div class="home-img4"></div>
+ <div id="about-section">
+ <div class="home-img3">
  <div class="home-text2">
     <h2>Välkommen till Göteborgs största matäventyr.</h2>
     <p>KorvKungen och BurgarBaronen är inte som det traditionella snabbmatshaket du besöker
@@ -60,13 +74,29 @@
         ännu kan gå härifrån utan att rulla fram, då bjuder vi på en påse "Onion Ring Circus Extravaganza".
     </p>
  </div>  
+</div>
 
 
     <footer>
-        <p>Gustav Brodin</p>
-            <p>DT207G</p>
-            <p>Projekt</p>
-            <p>VT 2024</p>
+        <div>
+        <h4>Öppetider</h4>
+            <p class="footerP">Mån - Tor:</p><p>11.00 - 00.00 </p>
+            <p class="footerP">Fre - Sön:</p><p>11.00 - 04.00 </p>
+        </div>
+        <div>
+            <h4>Adress</h4>
+            <p><img src="/src/pictures/location-dot-solid.svg" class="locationIcon">Vasagatan 33<br> 411 38 Göteborg</p>
+        </div>
+        <div>
+            <h4>Kontakta oss</h4>
+            <ul class="icons">
+            <li><img src="/src/pictures/phone-solid.svg">031313131</li>
+                <li><img src="/src/pictures/facebook.svg"</li>
+                <li><img src="/src/pictures/instagram.svg"</li>
+                <li><img src="/src/pictures/x-twitter.svg"</li>
+                <li><img src="/src/pictures/copyright-regular.svg">Gustav Brodin</li>
+            </ul>
+        </div> 
     </footer>
 
 </main>

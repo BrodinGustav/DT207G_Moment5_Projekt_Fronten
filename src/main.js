@@ -35,7 +35,26 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("loginPassword").value = "";
    
     });
-});
+    
+//Funktion för hamburgarmeny
+// Hämta in meny-knapparna
+let openBtn = document.getElementById("open-menu");
+let closeBtn = document.getElementById("close-menu");
+
+// Eventlyssnare
+openBtn.addEventListener('click', toggleMenu);
+closeBtn.addEventListener('click', toggleMenu);
+
+// Toggla fram navigeringsmenyn
+function toggleMenu() {
+    let navBarEl = document.getElementById("navbar");
+
+    // Toggle classen 'open'
+    navBarEl.classList.toggle("open");
+}
+})
+
+
 
     //*****FUNKTIONER******//
 
@@ -138,7 +157,7 @@ function renderMenu(menuData) {
         menuContainer.appendChild(menuItemDiv);
     });
 }
-
         
 //Anropar fetch 
 document.addEventListener("DOMContentLoaded", fetchMenu);
+
