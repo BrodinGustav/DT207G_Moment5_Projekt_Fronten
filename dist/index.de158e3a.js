@@ -72,9 +72,9 @@ async function fetchMenu() {
                 "Content-Type": "application/json"
             }
         });
+        //Kontroll kring fetch
         if (!response.ok) throw new Error(`Http error! Statis: ${response.status}`);
         const menuData = await response.json();
-        console.log("Fetched menu data:", menuData); // Felsökningsutskrift
         renderMenu(menuData);
     } catch (error) {
         console.error("Error fetching menu:", error);
@@ -84,16 +84,13 @@ async function fetchMenu() {
 function renderMenu(menuData) {
     const menuContainer = document.querySelector(".menu-categories");
     menuContainer.innerHTML = ""; //Rensar innehåll
-    if (!Array.isArray(menuData)) {
-        console.error("Menu data is not an array:", menuData);
-        return;
-    }
     menuData.forEach((item)=>{
-        console.log("Kontroll item:", item); //Felkontroll
+        //Kontroll över format från fetch
         if (!item.name || !item.description || !item.price || !item._id) {
             console.error("Invalid item format:", item);
             return;
         }
+        //Skapat element för utskrift 
         const menuItemDiv = document.createElement("div");
         menuItemDiv.classList.add("menu-item");
         const itemInfoDiv = document.createElement("div");

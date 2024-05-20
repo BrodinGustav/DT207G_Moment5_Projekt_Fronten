@@ -1,65 +1,11 @@
 body {
   max-width: 100%;
   margin: 0 auto;
+  font-size: 18px;
 }
 
 #protected-link {
   display: none;
-}
-
-.home-text {
-  text-align: center;
-  z-index: 2;
-  color: #fff;
-  background: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.home-img {
-  z-index: 1;
-  background-image: url("testbakgrund3.05e1803f.jpg");
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100vh;
-  position: relative;
-}
-
-.home-img:after {
-  content: "";
-  z-index: 0;
-  background-color: #000000a6;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.home-img2 {
-  background-color: #8b4513;
-  max-width: 100%;
-  height: auto;
-}
-
-.home-img3 {
-  background-color: #ff8c00;
-  max-width: 100%;
-  height: auto;
-}
-
-.faded {
-  opacity: .8;
-  border-radius: 50%;
-  width: 250px;
-  height: auto;
-  margin-left: 1em;
-  padding: 20px;
-  display: flex;
 }
 
 header {
@@ -68,6 +14,18 @@ header {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+header:before {
+  content: "";
+  opacity: .1;
+  z-index: -1;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 nav {
@@ -79,13 +37,78 @@ nav {
 
   & a {
     color: #fff;
+    font-size: 1.5em;
     text-decoration: none;
   }
+}
+
+a:hover {
+  color: orange;
+}
+
+a img:hover {
+  box-shadow: 10px 10px 10px orange;
 }
 
 .link-icon {
   width: 50px;
   height: auto;
+}
+
+footer {
+  color: #fff;
+  background-color: tomato;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}
+
+.home-text {
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  text-shadow: 10px 5px 10px orange;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.home-img {
+  opacity: .9;
+  background-image: url("testbakgrund3.05e1803f.jpg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.home-img2 {
+  background-color: #8b4513;
+  max-width: 100%;
+  height: auto;
+  padding: 100px;
+}
+
+.home-img4 {
+  opacity: .8;
+  background-image: url("background2.f8529e2c.jpg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 180vh;
+}
+
+.home-text2 {
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 550%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #protectedData {
@@ -109,81 +132,46 @@ nav {
   padding: 10px;
 }
 
-footer {
-  color: #fff;
-  background-color: tomato;
-}
-
 .home-sec tion {
   max-width: 100%;
 }
 
-.menu-gallery-left {
-  align-items: left;
-  flex-direction: column;
-  gap: 10em;
-  display: flex;
+.menu-gallery-burger {
+  position: absolute;
+  top: 100%;
 }
 
-.menu-gallery-right {
-  align-items: right;
-  flex-direction: column;
-  gap: 4em;
-  display: flex;
+.menu-gallery-sausage {
   position: absolute;
-  top: 10%;
-  right: 5%;
-}
-
-.menu-gallery-bottom {
-  align-items: right;
-  flex-direction: column;
-  gap: 4em;
-  display: flex;
-  position: absolute;
-  top: 60%;
-  right: 15%;
+  top: 110%;
+  right: 100px;
 }
 
 img {
-  z-index: 2;
+  opacity: .4;
   border-radius: 50%;
-  width: 150px;
+  width: 250px;
   height: auto;
-}
-
-.menu-section {
-  padding: 20px;
 }
 
 .menu-header h2 {
   text-align: center;
-  color: #333;
+  color: tomato;
+  font-size: 3em;
 }
 
 .menu-categories {
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 20px;
+  gap: 5em;
   display: flex;
-}
-
-h3 {
-  color: tomato;
 }
 
 .menu-item {
   align-items: center;
+  width: 30%;
   margin: 10px 0;
   display: flex;
-}
-
-.menu-item img {
-  object-fit: cover;
-  border-radius: 8px;
-  width: 80px;
-  height: 80px;
-  margin-right: 10px;
 }
 
 .menu-item-info {
@@ -191,13 +179,19 @@ h3 {
 }
 
 .menu-item-info h4 {
-  color: #333;
+  color: #ff0;
   margin: 0;
+  padding: .5em 0;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .menu-item-info p {
   color: #b1b1b1;
-  margin: 5px 0;
+  margin: 0;
+  padding: .5em 0;
+  font-family: comic-sans;
+  font-style: italic;
 }
 
 .menu-item-info .price {
