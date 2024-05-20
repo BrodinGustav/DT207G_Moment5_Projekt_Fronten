@@ -93,7 +93,7 @@ async function fetchMenu() {
         }
 
         //Anropar funktion för rendering av meny om fetch ok
-        const menuData = await response.json();
+        console.log('Fetched menu data:', menuData);            //Felsökningsutskrift
         renderMenu(menuData);
     }catch(error) {
         console.error("Error vid fetch av meny:", error);
@@ -102,48 +102,44 @@ async function fetchMenu() {
 
 //Funktion för rendering av meny
 function renderMenu(menuData) {
-    const menuCategoriesContainer = document.querySelector(".menu-categories");
-    menuCategoriesContainer.innerHTML = "";                                      //Rensar innehåll
+    const menuContainer = document.querySelector(".menu-categories");
+    menuContainer.innerHTML = "";                                      //Rensar innehåll
 
-    menuData.forEach(category => {
-        const categoryDiv = document.createElement("div");
-        categoryDiv.classList.add("menu-category");
+    if (!Array.isArray(menuData)) {
+        console.error('Menu data is not an array:', menuData);
+        return;
+    }
 
-        const categoryTitle = document.createElement("h3");
-        categoryTitle.textContent = category.name;
-        categoryDiv.appendChild(categoryTitle);
+    menuData.forEach(item => {
+        if (!item.name || !item.description || !item.price || !item._id) {
+            console.error('Invalid item format:', item);
+            return;
+        }
 
-        category.item.forEach(item => {
-            const menuItemDiv = document.createElement("div");
-            menuItemDiv.classList.add("menu-item");
+        const menuItemDiv = document.createElement('div');
+        menuItemDiv.classList.add('menu-item');
 
-            const itemImg = document.createElement("img");
-            itemImg.src = item.image;
-            itemImg.alt = item.name;
-            menuItemDiv.appendChild(itemImg);
+        const itemInfoDiv = document.createElement('div');
+        itemInfoDiv.classList.add('menu-item-info');
 
-            const itemInfoDiv = document.createElement("div");
-            itemInfoDiv.classList.add('menu-item-info');
+        const itemName = document.createElement('h4');
+        itemName.textContent = item.name;
+        itemInfoDiv.appendChild(itemName);
 
-            const itemName = document.createElement('h4');
-            itemName.textContent = item.name;
-            itemInfoDiv.appendChild(itemName);
+        const itemDescription = document.createElement('p');
+        itemDescription.textContent = item.description;
+        itemInfoDiv.appendChild(itemDescription);
 
-            const itemDescription = document.createElement('p');
-            itemDescription.textContent = item.description;
-            itemInfoDiv.appendChild(itemDescription);
+        const itemPrice = document.createElement('span');
+        itemPrice.classList.add('price');
+        itemPrice.textContent = `${item.price} SEK`;
+        itemInfoDiv.appendChild(itemPrice);
 
-            const itemPrice = document.createElement('span');
-            itemPrice.classList.add('price');
-            itemPrice.textContent = `${item.price} SEK`;
-            itemInfoDiv.appendChild(itemPrice);
-
-            menuItemDiv.appendChild(itemInfoDiv);
-            categoryDiv.appendChild(menuItemDiv);
-        });
-
-        menuCategoriesContainer.appendChild(categoryDiv);
+        menuItemDiv.appendChild(itemInfoDiv);
+        menuContainer.appendChild(menuItemDiv);
     });
 }
+
+        
 //Anropar fetch 
 document.addEventListener("DOMContentLoaded", fetchMenu);
