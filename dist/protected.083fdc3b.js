@@ -13,6 +13,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
     else console.log("Meny-formul\xe4r hittades.");
     if (!updateMenuForm) console.error("Kan inte hitta updateMenuForm.");
     else console.log("Update-formul\xe4r hittades.");
+    // Funktionen för att tömma fälten i ett formulär
+    function resetFormFields(form) {
+        form.querySelectorAll("input, textarea").forEach((field)=>field.value = "");
+    }
+    //********Funktion för skapa meny *****/
     // Händelselyssnare för skapa meny
     createMenuForm.addEventListener("submit", async function(event) {
         event.preventDefault();
@@ -44,6 +49,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 console.log(data.message);
                 console.log(data.error);
                 fetchMenu();
+                // Tömma fälten i skapa meny-formuläret
+                resetFormFields(createMenuForm);
             } else console.error("Error", response);
         } catch (error) {
             console.log("Error:", error);
@@ -81,6 +88,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 const data = await response.json();
                 console.log(data.message);
                 fetchMenu();
+                // Tömma fälten i skapa meny-formuläret
+                resetFormFields(updateMenuForm);
+                updateMenuForm.style.display = "none";
             } else console.error("Error vid uppdatering av meny:", response);
         } catch (error) {
             console.log("Error", error);

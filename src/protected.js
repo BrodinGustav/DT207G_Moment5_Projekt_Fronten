@@ -23,6 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Update-formulär hittades.");
     }
 
+    // Funktionen för att tömma fälten i ett formulär
+function resetFormFields(form) {
+    form.querySelectorAll('input, textarea').forEach(field => field.value = '');
+}
+
+    //********Funktion för skapa meny *****/
     // Händelselyssnare för skapa meny
     createMenuForm.addEventListener("submit", async function (event) {
         event.preventDefault();
@@ -60,6 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(data.error);
 
                 fetchMenu();
+
+                 // Tömma fälten i skapa meny-formuläret
+            resetFormFields(createMenuForm);
+
             } else {
                 console.error("Error", response);
             }
@@ -107,6 +117,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(data.message);
 
                 fetchMenu();
+
+                 // Tömma fälten i skapa meny-formuläret
+            resetFormFields(updateMenuForm);
+            updateMenuForm.style.display = "none";
+
             } else {
                 console.error("Error vid uppdatering av meny:", response);
             }
