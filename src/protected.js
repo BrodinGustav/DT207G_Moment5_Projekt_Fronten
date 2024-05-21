@@ -3,7 +3,7 @@ const Url = "http://localhost:3000/api";
 const url_Login = `${Url}/login`;
 const url_Protected = `${Url}/Protected`;
 const url_Menu = `${Url}/menu`;
-const url_Delete = `${Url}/menu/:id`;
+const url_Delete = `${Url}/menu/`;
 
 
 
@@ -182,9 +182,9 @@ function renderMenu(menuData) {
 
 //*********Funktion för att radera av meny********/
 //Ta bort meny
-async function deleteMenu(id) {
+async function deleteMenu(_id) {
     try{
-        const response = await fetch(url_Delete, {
+        const response = await fetch(`${url_Delete}${_id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -193,7 +193,7 @@ async function deleteMenu(id) {
 
         //Kontroll response
         if(!response.ok){
-            throw new Error("Http error! Status: ${response.status");
+            throw new Error(`Http error! Status: ${response.status}`);
         }
 
         //Konvertera svar till JSON
@@ -215,4 +215,6 @@ function logOut() {
 
 //Anropar fetch 
 document.addEventListener("DOMContentLoaded", fetchMenu);
+
+
 
