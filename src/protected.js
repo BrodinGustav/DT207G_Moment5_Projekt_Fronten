@@ -74,7 +74,22 @@ function renderMenu(menuData) {
             return;
         }
 
+        menuData.forEach(menu => {
+            const menuItem = document.createElement("div");
+            menuItem.className = "menu-item";
+            menuItem.innerHTML = `
+                <h3>${menu.name}</h3>
+                <p>${menu.description}</p>
+                <p>Pris: ${menu.price}</p>
+                <button class="update-btn" data-menu-id="${menu._id}">Uppdatera</button>
+                <button class="deleteBtn">Radera</button>
+                
+            `;
+            menuContainer.appendChild(menuItem);
+        });
+
         //Skapat element för utskrift 
+        /*
         const menuItemDiv = document.createElement('div');
         menuItemDiv.classList.add('menu-item');
 
@@ -103,8 +118,24 @@ function renderMenu(menuData) {
 
         menuItemDiv.appendChild(deleteBtn);                     //Lägger till knapp till menuItemDiv
         menuContainer.appendChild(menuItemDiv);                 //Lägger till menuItemDiv till menycontainern
+   */
+    });
+
+     // Lägg till händelselyssnare för uppdateringsknapparna
+     document.querySelectorAll(".update-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            const menuId = this.getAttribute("data-menu-id");
+            openUpdateForm(menuId);
+        });
+    });
+
+    document.querySelectorAll(".deleteBtn").forEach(button => {
+        button.addEventListener("click", function () {
+            deleteMenu(item._id)
+        });
     });
 }
+
 
 //*******Funktion för att lägga till meny*******/
  
@@ -164,6 +195,13 @@ createMenuForm.addEventListener("submit", async function (event) {
 //*********Funktion för uppdatering av maträtt*******/
 
 // Hämta ID för formulär för att skapa meny
+function openUpdateForm(menuId) {
+const updateForm = document.getElementById("updateMenuForm");
+updateForm.setAttribue("data-menu-id", menuId);
+
+updateForm.style.display = "block";  // Visa formuläret
+}
+
 const updateMenuForm = document.getElementById("updateMenuForm");
 
 // Kontroll om formulär finns
@@ -172,6 +210,7 @@ if (!updateMenuForm) {
 } else {
     console.log("Update-formulär hittades.");
 }
+
 
 //Händelselyssnare
 updateMenuForm.addEventListener("submit", async function (event) {
@@ -189,6 +228,10 @@ const formData = {
     description: foodDescription,
     price: foodPrice
 };
+
+//Kontroll log
+console.log("Form data som skickas:", formData);
+console.log("Menu ID:", menuId);
 
     try{
         const response = await fetch(`${url_Update}${menuId}`, {    //Skickar med ID för formulären för unik identifierare

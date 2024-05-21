@@ -49,34 +49,67 @@ async function fetchMenu() {
 function renderMenu(menuData) {
     const menuContainer = document.querySelector(".menu-categories");
     menuContainer.innerHTML = ""; //Rensar innehåll
-    menuData.forEach((item)=>{
+    menuData.forEach((item1)=>{
         //Kontroll över format från fetch
-        if (!item.name || !item.description || !item.price || !item._id) {
-            console.error("Invalid item format:", item);
+        if (!item1.name || !item1.description || !item1.price || !item1._id) {
+            console.error("Invalid item format:", item1);
             return;
         }
-        //Skapat element för utskrift 
-        const menuItemDiv = document.createElement("div");
-        menuItemDiv.classList.add("menu-item");
-        const itemInfoDiv = document.createElement("div");
-        itemInfoDiv.classList.add("menu-item-info");
-        const itemName = document.createElement("h4");
+        menuData.forEach((menu)=>{
+            const menuItem = document.createElement("div");
+            menuItem.className = "menu-item";
+            menuItem.innerHTML = `
+                <h3>${menu.name}</h3>
+                <p>${menu.description}</p>
+                <p>Pris: ${menu.price}</p>
+                <button class="update-btn" data-menu-id="${menu._id}">Uppdatera</button>
+                <button class="deleteBtn">Radera</button>
+                
+            `;
+            menuContainer.appendChild(menuItem);
+        });
+    //Skapat element för utskrift 
+    /*
+        const menuItemDiv = document.createElement('div');
+        menuItemDiv.classList.add('menu-item');
+
+        const itemInfoDiv = document.createElement('div');
+        itemInfoDiv.classList.add('menu-item-info');
+
+        const itemName = document.createElement('h4');
         itemName.textContent = item.name;
         itemInfoDiv.appendChild(itemName);
-        const itemDescription = document.createElement("p");
+
+        const itemDescription = document.createElement('p');
         itemDescription.textContent = item.description;
         itemInfoDiv.appendChild(itemDescription);
-        const itemPrice = document.createElement("span");
-        itemPrice.classList.add("price");
+
+        const itemPrice = document.createElement('span');
+        itemPrice.classList.add('price');
         itemPrice.textContent = `${item.price} SEK`;
         itemInfoDiv.appendChild(itemPrice);
-        menuItemDiv.appendChild(itemInfoDiv); //Lägger appendChild innan button-element för rätt struktur
-        const deleteBtn = document.createElement("button");
-        deleteBtn.classList.add("deleteBtn");
-        deleteBtn.textContent = "Radera";
-        deleteBtn.addEventListener("click", ()=>deleteMenu(item._id));
-        menuItemDiv.appendChild(deleteBtn); //Lägger till knapp till menuItemDiv
-        menuContainer.appendChild(menuItemDiv); //Lägger till menuItemDiv till menycontainern
+
+        menuItemDiv.appendChild(itemInfoDiv);                   //Lägger appendChild innan button-element för rätt struktur
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('deleteBtn');
+        deleteBtn.textContent = 'Radera';
+        deleteBtn.addEventListener('click', () => deleteMenu(item._id));
+
+        menuItemDiv.appendChild(deleteBtn);                     //Lägger till knapp till menuItemDiv
+        menuContainer.appendChild(menuItemDiv);                 //Lägger till menuItemDiv till menycontainern
+   */ });
+    // Lägg till händelselyssnare för uppdateringsknapparna
+    document.querySelectorAll(".update-btn").forEach((button)=>{
+        button.addEventListener("click", function() {
+            const menuId = this.getAttribute("data-menu-id");
+            openUpdateForm(menuId);
+        });
+    });
+    document.querySelectorAll(".deleteBtn").forEach((button)=>{
+        button.addEventListener("click", function() {
+            deleteMenu(item._id);
+        });
     });
 }
 //*******Funktion för att lägga till meny*******/
@@ -121,6 +154,11 @@ createMenuForm.addEventListener("submit", async function(event) {
 });
 //*********Funktion för uppdatering av maträtt*******/
 // Hämta ID för formulär för att skapa meny
+function openUpdateForm(menuId) {
+    const updateForm = document.getElementById("updateMenuForm");
+    updateForm.setAttribue("data-menu-id", menuId);
+    updateForm.style.display = "block"; // Visa formuläret
+}
 const updateMenuForm = document.getElementById("updateMenuForm");
 // Kontroll om formulär finns
 if (!updateMenuForm) console.error("Kan inte hitta formul\xe4r.");
@@ -139,6 +177,9 @@ updateMenuForm.addEventListener("submit", async function(event) {
         description: foodDescription,
         price: foodPrice
     };
+    //Kontroll log
+    console.log("Form data som skickas:", formData);
+    console.log("Menu ID:", menuId);
     try {
         const response = await fetch(`${url_Update}${menuId}`, {
             method: "PUT",
