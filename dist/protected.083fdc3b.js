@@ -4,6 +4,7 @@ const url_Protected = `${Url}/Protected`;
 const url_Menu = `${Url}/menu`;
 const url_Delete = `${Url}/menu/`;
 const url_createMenu = `${Url}/createMenu`;
+const url_Update = `${Url}/menu/`;
 //***********Funktion för att hämta skyddad data*********'
 async function getProtectedData() {
     try {
@@ -118,11 +119,49 @@ createMenuForm.addEventListener("submit", async function(event) {
         console.log("Error:", error);
     }
 });
-//*********Funktion för att radera av meny********/
-//Ta bort meny
-async function deleteMenu(_id) {
+//*********Funktion för uppdatering av maträtt*******/
+// Hämta ID för formulär för att skapa meny
+const updateMenuForm = document.getElementById("updateMenuForm");
+// Kontroll om formulär finns
+if (!updateMenuForm) console.error("Kan inte hitta formul\xe4r.");
+else console.log("Update-formul\xe4r hittades.");
+//Händelselyssnare
+updateMenuForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    //Hämta värden från formulär
+    const foodName = document.getElementById("foodName").value;
+    const foodDescription = document.getElementById("foodDescription").value;
+    const foodPrice = document.getElementById("foodPrice").value;
+    //skapa objekt
+    const formData = {
+        name: foodName,
+        description: foodDescription,
+        price: foodPrice
+    };
     try {
-        const response = await fetch(`${url_Delete}${_id}`, {
+        const response = await fetch(`${url_Update}${_id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        });
+        // Kontroll om lyckat anrop
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data.message); // Kontroll-logg
+            console.log(data.error);
+            // Hämtar menydata på nytt för att uppdatera visningen
+            fetchMenu();
+        } else console.error("Error vid uppdatering av meny:", response);
+    } catch (error) {
+        console.log("Error", error);
+    }
+});
+//*********Funktion för att radera av meny********/
+async function deleteMenu(_id1) {
+    try {
+        const response = await fetch(`${url_Delete}${_id1}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"

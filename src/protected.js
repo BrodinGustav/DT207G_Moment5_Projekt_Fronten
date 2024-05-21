@@ -4,6 +4,7 @@ const url_Protected = `${Url}/Protected`;
 const url_Menu = `${Url}/menu`;
 const url_Delete = `${Url}/menu/`;
 const url_createMenu = `${Url}/createMenu`;
+const url_Update = `${Url}/menu/`;
 
 
 
@@ -160,8 +161,64 @@ createMenuForm.addEventListener("submit", async function (event) {
     }
 });
 
+//*********Funktion för uppdatering av maträtt*******/
+
+// Hämta ID för formulär för att skapa meny
+const updateMenuForm = document.getElementById("updateMenuForm");
+
+// Kontroll om formulär finns
+if (!updateMenuForm) {
+    console.error("Kan inte hitta formulär.");
+} else {
+    console.log("Update-formulär hittades.");
+}
+
+//Händelselyssnare
+updateMenuForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+//Hämta värden från formulär
+const foodName = document.getElementById("foodName").value;
+const foodDescription = document.getElementById("foodDescription").value;
+const foodPrice = document.getElementById("foodPrice").value;
+
+
+//skapa objekt
+const formData = {
+    name: foodName,
+    description: foodDescription,
+    price: foodPrice
+};
+
+    try{
+        const response = await fetch(`${url_Update}${_id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData)  
+        });
+
+        // Kontroll om lyckat anrop
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data.message); // Kontroll-logg
+            console.log(data.error);
+
+             // Hämtar menydata på nytt för att uppdatera visningen
+             fetchMenu();
+
+    }else {
+        console.error("Error vid uppdatering av meny:", response);
+    }
+    }catch(error){
+        console.log("Error", error);
+    }
+});
+
+
 //*********Funktion för att radera av meny********/
-//Ta bort meny
+
 async function deleteMenu(_id) {
     try{
         const response = await fetch(`${url_Delete}${_id}`, {
