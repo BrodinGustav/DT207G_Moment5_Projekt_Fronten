@@ -31,9 +31,9 @@ header{
 
 .companyLogga{
 position: absolute;
-    width: 100px;
+    width: 130px;
     height:auto;
-    padding:5px;
+    padding:10px;
 }
 
 /*Nav*/
@@ -160,28 +160,56 @@ footer h4{
     text-align:center;
 }
 
+    .menu-header h2 {
+        text-align: center;
+        color: #FF6347;
+        font-size:3em;
+        position:relative;
+    }
+    
+    .menu-categories {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 5em;
+    }
+    
+    .menu-item {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+        width:30%;
+    }
+       
+    .menu-item-info {
+        flex: 1;
 
-/*Protected.html*/
-#protectedData{
-    text-align: center;
-    z-index: 2;
-    background: 0 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color:white;
-    border:2px solid orange;
-    padding:20px;
-    box-shadow: 2px 2px 15px 10px orange;
-}
+    }
+    
+    .menu-item-info h4 {
+        margin: 0;
+        color: #ffff00;;
+        font-size: 1.5em;
+        padding: 0.5em 0; 
+        font-weight: bold; 
+    }
+    
+    .menu-item-info p {
+        margin: 5px 0;
+        color: #b1b1b1;
+        margin: 0;
+        padding: 0.5em 0;
+        font-family: comic-sans;
+        font-style:italic; 
 
-#LogoutBtn{
-    border-radius:10px;
-    padding: 10px;
-    background-color: orange;
-    margin-top:5em;
-}
+    }
+    
+    .menu-item-info .price {
+        font-weight: bold;
+        color: #ff8c00;
+    }
+
+
 
     /*Homegalleri*/
 
@@ -268,7 +296,7 @@ footer h4{
 
     /*********MEDIAQUERIS***************/
     
-    @media screen and (min-width: 332px) and (max-width:393px) {
+    @media screen and (min-width: 300px) and (max-width:393px) {
         .noSmallestMobile{
             display:none;
         }
@@ -278,7 +306,10 @@ footer h4{
         }
             }
 
-    @media screen and (min-width: 454px) and (max-width: 767px) {
+        .menu-item-info h4
+        {font-size:1em;}
+
+    @media screen and (min-width: 394px) and (max-width: 767px) {
 .noMobile{
     display:none;
 }
@@ -432,6 +463,10 @@ footer h4{
 }
 
 @media screen and (min-width: 769px) {
+
+    .companyLogga{
+        width:6em;
+    }
 
     #navbar {
         display: block

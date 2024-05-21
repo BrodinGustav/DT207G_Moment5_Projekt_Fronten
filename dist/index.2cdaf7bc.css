@@ -27,9 +27,9 @@ header {
 }
 
 .companyLogga {
-  width: 100px;
+  width: 130px;
   height: auto;
-  padding: 5px;
+  padding: 10px;
   position: absolute;
 }
 
@@ -150,27 +150,6 @@ footer h4 {
   text-align: center;
 }
 
-#protectedData {
-  text-align: center;
-  z-index: 2;
-  color: #fff;
-  background: none;
-  border: 2px solid orange;
-  padding: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 2px 2px 15px 10px orange;
-}
-
-#LogoutBtn {
-  background-color: orange;
-  border-radius: 10px;
-  margin-top: 5em;
-  padding: 10px;
-}
-
 .menu-section {
   position: relative;
 }
@@ -246,7 +225,7 @@ img {
   font-weight: bold;
 }
 
-@media screen and (width >= 332px) and (width <= 393px) {
+@media screen and (width >= 300px) and (width <= 393px) {
   .noSmallestMobile {
     display: none;
   }
@@ -256,7 +235,11 @@ img {
   }
 }
 
-@media screen and (width >= 454px) and (width <= 767px) {
+.menu-item-info h4 {
+  font-size: 1em;
+}
+
+@media screen and (width >= 394px) and (width <= 767px) {
   .noMobile {
     display: none;
   }
@@ -403,6 +386,10 @@ img {
 }
 
 @media screen and (width >= 769px) {
+  .companyLogga {
+    width: 6em;
+  }
+
   #navbar {
     display: block;
   }
