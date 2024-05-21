@@ -1,87 +1,11 @@
 //Definierar URL:s
 const Url = "http://localhost:3000/api";
-const url_Login = `${Url}/login`;
 const url_Protected = `${Url}/Protected`;
 const url_Menu = `${Url}/menu`;
 const url_Delete = `${Url}/menu/`;
+const url_createMenu = `${Url}/createMenu`;
 
 
-
-//**********Formulärhantering******
-
-    //Hämta ID för log-in formulär
-    const loginForm = document.getElementById("loginForm");
-
-    //Kontroll om formulär finns
-    if(!loginForm) {
-        console.error("Kan inte hitta formulär.");
-     
-    } else {
-        console.log("Log-in formulär hittades.");
-    
-    //Händelselyssnar för login-formulär
-    loginForm.addEventListener("submit", async function(event) {
-        event.preventDefault();
-        console.log("Formulär skickades in.");
-
-    
-        const username = document.getElementById("loginUsername").value;
-        const password = document.getElementById("loginPassword").value;
-    
-        //Kontrollera inputfält
-        if(!username || !password) {
-            console.error("Användarnamn och lösenord krävs.");
-            return;
-        }
-            await logIn(username, password);
-    
-        //Återställer input-fält
-        document.getElementById("loginUsername").value = "";
-        document.getElementById("loginPassword").value = "";
-    
-    });
-}
-
-//******Funktion för logga in*************'
-
-async function logIn(username, password) {
-
-    try{
-        const response = await fetch(url_Login, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ username, password })
-        });
-
-        const data = await response.json();
-        console.log(data);
-
-        if (data.token) {
-            localStorage.setItem("token", data.token);
-            window.location.href = "protected.html";
-        
-        }else{
-            //Felaktig input
-            const errorContainer = document.getElementById("error_container");
-            const errorList = document.getElementById("error_list");
-
-            errorList.innerHTML = "";
-            const li = document.createElement("li");
-
-            li.textContent ="Fel användarnamn/lösenord";
-            li.style.color = "white";
-            li.style.listStyle = "none";
-            li.style.textAlign = "center";
-
-            errorList.appendChild(li);
-            errorContainer.style.display = "block";
-        }       
-} catch (error) {
-    console.error("Error logging in:", error);
-}
-}    
 
 
 //***********Funktion för att hämta skyddad data*********'
@@ -111,7 +35,7 @@ async function getProtectedData() {
     }
 }
 
-//********** Funktion för hämtning av data ***********
+//********** Funktion för hämtning av meny-data ***********
 
 //Hämta in meny
 async function fetchMenu() {
@@ -136,7 +60,8 @@ async function fetchMenu() {
 
 }
 
-//Funktion för rendering av meny
+//****Funktion för rendering av meny************
+
 function renderMenu(menuData) {
     const menuContainer = document.querySelector(".menu-categories");
     menuContainer.innerHTML = "";                                      //Rensar innehåll
@@ -180,6 +105,60 @@ function renderMenu(menuData) {
     });
 }
 
+//*******Funktion för att lägga till meny*******/
+ 
+// Hämta ID för formulär för att skapa meny
+const createMenuForm = document.getElementById("createMenuForm");
+
+// Kontroll om formulär finns
+if (!createMenuForm) {
+    console.error("Kan inte hitta formulär.");
+} else {
+    console.log("Meny-formulär hittades.");
+}
+
+    //Händelselyssnare
+createMenuForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    //Hämta värden från formulär
+    const foodName = document.getElementById("foodName").value;
+    const foodDescription = document.getElementById("foodDescription").value;
+    const foodPrice = document.getElementById("foodPrice").value;
+
+    //skapa objekt
+    const formData = {
+        name: foodName,
+        description: foodDescription,
+        price: foodPrice
+    };
+
+    //Postanrop
+    try{
+        const response = await fetch(url_createMenu, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)                  //Konverterar formulärvärden till JSON och skickar med POST-anrop
+        });
+    
+        //Kontroll om lyckat anrop
+        if(response.ok) {
+            const data = await response.json();
+            console.log(data.message);                      //Kontroll-logg
+
+             // Hämtar menydata på nytt för att uppdatera visningen
+             fetchMenu();
+             
+        }else{
+            console.error("Error", response);               //Kontroll-logg
+        }
+    }catch (error) {
+        console.log("Error:", error);
+    }
+});
+
 //*********Funktion för att radera av meny********/
 //Ta bort meny
 async function deleteMenu(_id) {
@@ -198,10 +177,11 @@ async function deleteMenu(_id) {
 
         //Konvertera svar till JSON
         const result = await response.json();
-        console.log(result.messge);                                         //Kontroll-logg
+        console.log(result);                                         //Kontroll-logg
         
         //Hämta meny efter radering
         fetchMenu();
+        console.log("Meny raderad!");
     }catch(error) {
         console.error("Error vid radering av meny:", error);
     }
