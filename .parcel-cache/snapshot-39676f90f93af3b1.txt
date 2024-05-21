@@ -13,8 +13,8 @@
 105C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\@swc\helpers\esm\_class_apply_descriptor_get.js133605873987786454 0
 84C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\css-tree\lib\syntax\atrule133605873993675008 1
 100C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\lmdb\node_modules\node-addon-api\nothing.c133605873996028615 0
+64C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\protected.html133607650375536254 0
 88C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\css-what\lib\commonjs\types.js133605873973601355 0
-64C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\protected.html133607614446742098 0
 108C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\COPYRIGHT133605873975278214 0
 90C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\node-gyp-build-optional-packages133605873973117459 1
 100C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\entities\lib\generated\decode-data-html.js133605873972246289 0
@@ -49,7 +49,7 @@
 87C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\msgpackr-extract\package.json133605873972681021 0
 106C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\css-select\lib\pseudo-selectors\filters.d.ts.map133605873980175259 0
 124C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\mergePaths.js133605874001139401 0
-49C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist133607647430680876 1
+49C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist133607651129089235 1
 98C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\caniuse-lite\data\features\filesystem.js133605873997377775 0
 57C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules133605874034104568 1
 133C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\syntax\atrule\media.js133605874003603086 0
@@ -125,13 +125,13 @@
 84C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\css-tree\lib\utils\List.js133605873992244957 0
 98C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\@parcel\core\src\public\PluginOptions.js133605874005606319 0
 97C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\caniuse-lite\data\features\wake-lock.js133605874011405462 0
-63C:\Utbildning\DT207G\Moment5_Projekt_Fronten\src\protected.html133607614347809332 0
+63C:\Utbildning\DT207G\Moment5_Projekt_Fronten\src\protected.html133607650375146248 0
 131C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\@parcel\optimizer-svgo\node_modules\svgo\plugins\removeEmptyContainers.js133605874001902622 0
 80C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\domelementtype\LICENSE133605873970096488 0
 77C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\ordered-binary\dist133605873971376178 1
 127C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\css-select\node_modules\entities\lib\esm\generated\encode-html.js.map133605873980188199 0
 85C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\css-tree\cjs\utils\List.cjs133605873983955703 0
-61C:\Utbildning\DT207G\Moment5_Projekt_Fronten\src\protected.js133607647430280827 0
+61C:\Utbildning\DT207G\Moment5_Projekt_Fronten\src\protected.js133607651128799252 0
 94C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\csso\lib\replace\atrule\keyframes.js133605873984362010 0
 104C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\caniuse-lite\data\features\css-nth-child-of.js133605873991953985 0
 71C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\lmdb\level.js133605873988769137 0
@@ -4176,7 +4176,7 @@
 106C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\caniuse-lite\data\features\element-from-point.js133605873996264744 0
 90C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\@parcel\packager-js\lib\utils.js133605873992766300 0
 110C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\caniuse-lite\data\features\element-scroll-methods.js133605873996295132 0
-75C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\protected.083fdc3b.js.map133607647430640858 0
+75C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\protected.083fdc3b.js.map133607651129069254 0
 91C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\caniuse-lite\data\features\es5.js133605873996466765 0
 84C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\@parcel\node-resolver-core133605873978426033 1
 113C:\Utbildning\DT207G\Moment5_Projekt_Fronten\node_modules\caniuse-lite\data\features\es6-module-dynamic-import.js133605873996548542 0
@@ -5973,4 +5973,4 @@
 75C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\protected.d2593d7c.js.map133607614353268222 0
 75C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\testbakgrund.d0bb0f6c.jpg133605899863751472 0
 85C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\testbakgrund3.05e1803f.jpg.17888.74133605947984376469 0
-71C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\protected.083fdc3b.js133607647430610852 0
+71C:\Utbildning\DT207G\Moment5_Projekt_Fronten\dist\protected.083fdc3b.js133607651129049254 0

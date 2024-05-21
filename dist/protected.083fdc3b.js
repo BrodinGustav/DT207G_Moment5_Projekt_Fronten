@@ -54,9 +54,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
         event.preventDefault();
         console.log("Formul\xe4r skickat");
         // Hämta värden från formulär
-        const foodName = document.getElementById("foodName").value;
-        const foodDescription = document.getElementById("foodDescription").value;
-        const foodPrice = document.getElementById("foodPrice").value;
+        const foodName = document.getElementById("updateFoodName").value;
+        const foodDescription = document.getElementById("updateFoodDescription").value;
+        const foodPrice = document.getElementById("updateFoodPrice").value;
         const menuId = updateMenuForm.getAttribute("data-menu-id");
         // Validera att alla fält är ifyllda
         if (!foodName || !foodDescription || !foodPrice) {
@@ -80,7 +80,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
             if (response.ok) {
                 const data = await response.json();
                 console.log(data.message);
-                console.log(data.error);
                 fetchMenu();
             } else console.error("Error vid uppdatering av meny:", response);
         } catch (error) {
