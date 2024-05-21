@@ -156,7 +156,7 @@ createMenuForm.addEventListener("submit", async function(event) {
 // Hämta ID för formulär för att skapa meny
 function openUpdateForm(menuId) {
     const updateForm = document.getElementById("updateMenuForm");
-    updateForm.setAttribue("data-menu-id", menuId);
+    updateForm.setAttribute("data-menu-id", menuId);
     updateForm.style.display = "block"; // Visa formuläret
 }
 const updateMenuForm = document.getElementById("updateMenuForm");
