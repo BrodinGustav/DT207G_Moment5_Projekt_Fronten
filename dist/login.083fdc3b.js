@@ -3,6 +3,7 @@ const Url = "http://localhost:3000/api";
 const url_Login = `${Url}/login`;
 const url_Protected = `${Url}/Protected`;
 const url_Menu = `${Url}/menu`;
+const url_Delete = `${Url}/menu/:id`;
 //**********Formulärhantering******
 //Hämta ID för log-in formulär
 const loginForm = document.getElementById("loginForm");
@@ -127,13 +128,35 @@ function renderMenu(menuData) {
         itemPrice.classList.add("price");
         itemPrice.textContent = `${item.price} SEK`;
         itemInfoDiv.appendChild(itemPrice);
-        menuItemDiv.appendChild(itemInfoDiv);
+        menuItemDiv.appendChild(itemInfoDiv); //Lägger appendChild innan button-element för rätt struktur
         const deleteBtn = document.createElement("button");
         deleteBtn.classList.add("deleteBtn");
         deleteBtn.textContent = "Radera";
-        menuItemDiv.appendChild(deleteBtn);
-        menuContainer.appendChild(menuItemDiv);
+        deleteBtn.addEventListener("click", ()=>deleteMenu(item._id));
+        menuItemDiv.appendChild(deleteBtn); //Lägger till knapp till menuItemDiv
+        menuContainer.appendChild(menuItemDiv); //Lägger till menuItemDiv till menycontainern
     });
+}
+//*********Funktion för att radera av meny********/
+//Ta bort meny
+async function deleteMenu(id) {
+    try {
+        const response = await fetch(url_Delete, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        //Kontroll response
+        if (!response.ok) throw new Error("Http error! Status: ${response.status");
+        //Konvertera svar till JSON
+        const result = await response.json();
+        console.log(result.messge); //Kontroll-logg
+        //Hämta meny efter radering
+        fetchMenu();
+    } catch (error) {
+        console.error("Error vid radering av meny:", error);
+    }
 }
 //******Funktion för att logga ut********
 function logOut() {
