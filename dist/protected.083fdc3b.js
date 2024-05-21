@@ -110,6 +110,7 @@ createMenuForm.addEventListener("submit", async function(event) {
         if (response.ok) {
             const data = await response.json();
             console.log(data.message); //Kontroll-logg
+            console.log(data.error);
             // Hämtar menydata på nytt för att uppdatera visningen
             fetchMenu();
         } else console.error("Error", response); //Kontroll-logg
