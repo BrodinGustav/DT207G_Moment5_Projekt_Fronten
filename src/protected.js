@@ -176,12 +176,12 @@ if (!updateMenuForm) {
 //Händelselyssnare
 updateMenuForm.addEventListener("submit", async function (event) {
     event.preventDefault();
-
+    
 //Hämta värden från formulär
 const foodName = document.getElementById("foodName").value;
 const foodDescription = document.getElementById("foodDescription").value;
 const foodPrice = document.getElementById("foodPrice").value;
-
+const menuId = updateMenuForm.getAttribute("data-menu-id"); // Hämtar menuID från data-attributet
 
 //skapa objekt
 const formData = {
@@ -191,7 +191,7 @@ const formData = {
 };
 
     try{
-        const response = await fetch(`${url_Update}${_id}`, {
+        const response = await fetch(`${url_Update}${menuId}`, {    //Skickar med ID för formulären för unik identifierare
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

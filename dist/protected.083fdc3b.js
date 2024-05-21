@@ -132,6 +132,7 @@ updateMenuForm.addEventListener("submit", async function(event) {
     const foodName = document.getElementById("foodName").value;
     const foodDescription = document.getElementById("foodDescription").value;
     const foodPrice = document.getElementById("foodPrice").value;
+    const menuId = updateMenuForm.getAttribute("data-menu-id"); // Hämtar menuID från data-attributet
     //skapa objekt
     const formData = {
         name: foodName,
@@ -139,7 +140,7 @@ updateMenuForm.addEventListener("submit", async function(event) {
         price: foodPrice
     };
     try {
-        const response = await fetch(`${url_Update}${_id}`, {
+        const response = await fetch(`${url_Update}${menuId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -159,9 +160,9 @@ updateMenuForm.addEventListener("submit", async function(event) {
     }
 });
 //*********Funktion för att radera av meny********/
-async function deleteMenu(_id1) {
+async function deleteMenu(_id) {
     try {
-        const response = await fetch(`${url_Delete}${_id1}`, {
+        const response = await fetch(`${url_Delete}${_id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
