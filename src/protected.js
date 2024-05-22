@@ -51,6 +51,7 @@ function resetFormFields(form) {
             price: foodPrice
         };
 
+        /***CRUD för skapa meny ***/
         try {
             const response = await fetch(url_createMenu, {
                 method: "POST",
@@ -103,6 +104,7 @@ function resetFormFields(form) {
             price: foodPrice
         };
 
+        /**********CRUD för uppdatering av meny ********/
         try {
             const response = await fetch(`${url_Update}${menuId}`, {
                 method: "PUT",
@@ -134,25 +136,6 @@ function resetFormFields(form) {
     fetchMenu();
 });
 
-// Funktion för att hämta skyddad data
-async function getProtectedData() {
-    try {
-        const token = localStorage.getItem("token");
-        const response = await fetch(url_Protected, {
-            method: "GET",
-            headers: {
-                "Authorization": `Bearer ${token}`
-            }
-        });
-
-        const data = await response.json();
-        console.log(data);
-
-    } catch (error) {
-        console.error("Error vid fetching av data:", error);
-    }
-}
-
 // Funktion för hämtning av meny-data
 async function fetchMenu() {
     try {
@@ -181,7 +164,7 @@ function renderMenu(menuData) {
 
     menuData.forEach(item => {
         if (!item.name || !item.description || !item.price || !item._id) {
-            console.error('Invalid item format:', item);
+            console.error('Fel format:', item);
             return;
         }
 

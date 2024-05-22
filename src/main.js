@@ -37,7 +37,7 @@ function toggleMenu() {
 
 
 
-    //*****FUNKTIONER******//
+    //*****CRUD******//
 
 //Hämta in meny
 async function fetchMenu() {

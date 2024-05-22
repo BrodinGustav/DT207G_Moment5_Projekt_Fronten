@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
         } else console.error("Elementet med ID 'navbar' hittades inte");
     }
 });
-//*****FUNKTIONER******//
+//*****CRUD******//
 //Hämta in meny
 async function fetchMenu() {
     try {
