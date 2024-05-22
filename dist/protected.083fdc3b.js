@@ -111,12 +111,6 @@ async function getProtectedData() {
         });
         const data = await response.json();
         console.log(data);
-        //Hämtar ID
-        const protectedContent = document.getElementById("protectedContent");
-        protectedContent.classList.add("protectedContent");
-        protectedContent.innerHTML = `<p>V\xe4lkommen anst\xe4lld Id-nr 1</p>`;
-        const protectedData = document.getElementById("protectedData");
-        protectedData.classList.add("protectedData");
     } catch (error) {
         console.error("Error vid fetching av data:", error);
     }
@@ -174,8 +168,10 @@ function renderMenu(menuData) {
 // Funktion för att öppna uppdateringsformuläret
 function openUpdateForm(menuId) {
     const updateForm = document.getElementById("updateMenuForm");
+    const updateh2 = document.getElementById("updateh2");
     updateForm.setAttribute("data-menu-id", menuId);
     updateForm.style.display = "block"; // Visa formuläret
+    updateh2.style.display = "block"; // Visa överskrift
 }
 // Funktion för att radera meny
 async function deleteMenu(_id) {
@@ -198,7 +194,6 @@ async function deleteMenu(_id) {
 // Funktion för att logga ut
 function logOut() {
     localStorage.removeItem("token");
-    document.getElementById("protectedData").style.display = "none";
     window.location.href = "index.html";
 }
 
