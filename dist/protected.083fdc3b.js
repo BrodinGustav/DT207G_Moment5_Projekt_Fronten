@@ -129,7 +129,7 @@ function renderMenu(menuData) {
         menuItem.innerHTML = `
             <h3>${item.name}</h3>
             <p>${item.description}</p>
-            <p>Pris: ${item.price}</p>
+            <p>Pris: ${item.price} Kr</p>
             <button class="update-btn" data-menu-id="${item._id}">Uppdatera</button>
             <button class="deleteBtn" data-menu-id="${item._id}">Radera</button>
         `;
