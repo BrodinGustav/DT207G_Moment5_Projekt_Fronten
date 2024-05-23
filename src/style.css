@@ -102,6 +102,16 @@ footer h4{
     height:auto;
 }
 
+.text-background{
+    background-color: rgba(0, 0, 0, 0.6); 
+    padding: 20px; 
+    border-radius: 5px; 
+    color: white; 
+    max-width:100%;
+    width:80%;
+    margin:0 auto;
+}
+
 /*Bakgrundbild*/
 .home-text {
      text-align: center;
