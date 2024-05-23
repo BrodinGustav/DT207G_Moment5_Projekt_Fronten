@@ -93,6 +93,12 @@ h2 {
     cursor: pointer;
 }
 
+.error-container {
+    display: none;    
+}
+
+
+
 footer {
     text-align: center;
     padding: 1rem;

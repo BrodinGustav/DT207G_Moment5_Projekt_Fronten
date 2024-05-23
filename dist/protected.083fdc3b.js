@@ -47,11 +47,25 @@ document.addEventListener("DOMContentLoaded", ()=>{
             if (response.ok) {
                 const data = await response.json();
                 console.log(data.message);
-                console.log(data.error);
                 fetchMenu();
                 // Tömma fälten i skapa meny-formuläret
                 resetFormFields(createMenuForm);
-            } else console.error("Error", response);
+            } else {
+                const errorData = await response.json(); //Läser ut JSON-svaret
+                console.error("Error", errorData);
+                //Felaktig input
+                const errorContainer = document.getElementById("error_container");
+                const errorList = document.getElementById("error_list");
+                errorList.innerHTML = "";
+                const li = document.createElement("li");
+                li.textContent = errorData.error; //Visar felmeddelandet
+                li.style.color = "Red";
+                li.style.fontWeight = "bold";
+                li.style.listStyle = "none";
+                li.style.textAlign = "left";
+                errorList.appendChild(li);
+                errorContainer.style.display = "block";
+            }
         } catch (error) {
             console.log("Error:", error);
         }
