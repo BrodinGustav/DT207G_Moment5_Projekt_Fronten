@@ -6,6 +6,17 @@ const url_Delete = `${Url}/menu/`;
 const url_createMenu = `${Url}/createMenu`;
 const url_Update = `${Url}/menu/`;
 
+
+//Kontroll om token finns när sidan laddas
+document.addEventListener("DOMContentLoaded", function() {
+    const token = localStorage.getItem("token");
+    if(!token) {
+        window.location.href = "index.html";
+    } else {
+        getProtectedData();
+    }
+})
+
 // Hämtar element när dokumentet är laddat
 document.addEventListener("DOMContentLoaded", () => {
     const createMenuForm = document.getElementById("createMenuForm");
