@@ -44,6 +44,13 @@ function resetFormFields(form) {
     createMenuForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
+         // Kontrollera token
+         const token = localStorage.getItem("token");
+         if (!token) {
+             window.location.href = "index.html";
+             return;
+         }
+
         // Hämta värden från formulär
         const foodName = document.getElementById("foodName").value;
         const foodDescription = document.getElementById("foodDescription").value;
@@ -67,7 +74,8 @@ function resetFormFields(form) {
             const response = await fetch(url_createMenu, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
                 },
                 body: JSON.stringify(formData)
             });
@@ -110,6 +118,13 @@ function resetFormFields(form) {
     updateMenuForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
+          // Kontrollera token
+          const token = localStorage.getItem("token");
+          if (!token) {
+              window.location.href = "index.html";
+              return;
+          }
+
         console.log("Formulär skickat");
 
         // Hämta värden från formulär
@@ -137,6 +152,7 @@ function resetFormFields(form) {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
                 },
                 body: JSON.stringify(formData)
             });
@@ -165,11 +181,18 @@ function resetFormFields(form) {
 
 // Funktion för hämtning av meny-data
 async function fetchMenu() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+        window.location.href = "index.html";
+        return;
+    }
+
     try {
         const response = await fetch(url_Menu, {
             method: "GET",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
             }
         });
 
@@ -234,11 +257,18 @@ function openUpdateForm(menuId) {
 
 // Funktion för att radera meny
 async function deleteMenu(_id) {
+    const token = localStorage.getItem("token");
+    if (!token) {
+        window.location.href = "index.html";
+        return;
+    }
+
     try {
         const response = await fetch(`${url_Delete}${_id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
             },
         });
 
